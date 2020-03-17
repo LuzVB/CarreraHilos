@@ -26,49 +26,58 @@ public class ResultadosCarrera extends Thread {
 
     @Override
     public void run() {
-        imprimirResultados(equipo1);
-//        imprimirResultados(equipo2);
-//        imprimirResultados(equipo3);
-//        Random rand = new Random();
-//        while (true) {
-//            imprimirResultados(equipo1);
-//            imprimirResultados(equipo2);
-//            imprimirResultados(equipo3);
-//            System.out.println("\n");
-//            try {
-//                Thread.sleep(2000);
-//                int random = rand.nextInt(10);
-//                System.out.println(random);
-//                if (random == 7) { // Quitar random y colocar hasta que alguien llegue al final 
-//                    System.out.println("TERMINE");
-//                    break;
-//                }
-//            } catch (InterruptedException ex) {
-//                break;
-//                //Logger.getLogger(HiloMatematico.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+//        try {
+//            //        imprimirResultados(equipo1);
+////        imprimirResultados(equipo2);
+////        imprimirResultados(equipo3);
+////        Random rand = new Random();
+////        while (true) {
+////            imprimirResultados(equipo1);
+////            imprimirResultados(equipo2);
+////            imprimirResultados(equipo3);
+////            System.out.println("\n");
+////            try {
+////                Thread.sleep(2000);
+////                int random = rand.nextInt(10);
+////                System.out.println(random);
+////                if (random == 7) { // Quitar random y colocar hasta que alguien llegue al final 
+////                    System.out.println("TERMINE");
+////                    break;
+////                }
+////            } catch (InterruptedException ex) {
+////                break;
+////                //Logger.getLogger(HiloMatematico.class.getName()).log(Level.SEVERE, null, ex);
+////            }
+////        }
+//            
+//           Thread.sleep(5000);
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(ResultadosCarrera.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 
-//        for (int i = 0; i < equipo1.getPista().length; i++) {
-//            try {
-//                Thread.sleep(2000);
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(ResultadosCarrera.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+//        for (int i = 0; i < 33; i++) {
 //            imprimirResultados(equipo1);
 //            System.out.println("\n");
 //        }
+        do {
+            imprimirResultados(equipo1);
+            imprimirResultados(equipo2);
+            imprimirResultados(equipo3);
+            System.out.println("\n");
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ResultadosCarrera.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } while (true);
+//        
     }
+    
 
     private void imprimirResultados(Equipo equipo) {
-        for (int i = 0; i < equipo.getPista().length; i++) {
-            System.out.print(equipo.getColorEquipo() + equipo.getPista()[i] + "\u001B[0m");
-        }
-        System.out.println();
-
-        for (Object elementos : equipo.lista) {
+        for (Object elementos : equipo.getPista()) {
             System.out.print(equipo.getColorEquipo() + elementos + "\u001B[0m");
         }
-
+        System.out.println();
     }
 }

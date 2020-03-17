@@ -16,10 +16,9 @@ public class Equipo {
      * Variable que guarda las pósiciones de los corredores 
      * simulando en que parte de la pista van.
      */
-    private String[] pista = new String[101];
-    ArrayList<String> lista = new ArrayList<>();
+//    private String[] lista = new String[101];
+    ArrayList<String> pista = new ArrayList<>();
 
-    
     /**
      * Variable que almacena el nombre del equipo
      * para mostrar al final si es el ganador 
@@ -56,15 +55,15 @@ public class Equipo {
      * es la representacion del carril de los corredores
      */
     private void llenarCarril(){
-        for (int i = 0; i < pista.length; i++) {
-           pista[i]="-";
-        }
-        pista[pista.length-1] = "||";
+//        for (int i = 0; i < pista.length; i++) {
+//           pista[i]="-";
+//        }
+//        pista[pista.length-1] = "||";
         
         for (int i = 0; i < 101; i++) {
-           lista.add(i, "-");
+           pista.add(i, "-");
         }
-        lista.add(lista.size()-1, "||");
+        pista.add(pista.size(), "||");
     }
     
     /**
@@ -87,14 +86,7 @@ public class Equipo {
         }
     }
 
-    public String[] getPista() {
-        return pista;
-    }
-
-    public void setPista(String[] pista) {
-        this.pista = pista;
-    }
-    
+  
     public String getNombreEquipo() {
         return nombreEquipo;
     }
@@ -119,11 +111,13 @@ public class Equipo {
         this.identificador = identificador;
     }
     
-    public ArrayList<String> getLista() {
-        return lista;
+    
+    public ArrayList<String> getPista() {
+        return pista;
     }
 
-    public void setLista(ArrayList<String> lista) {
-        this.lista = lista;
-    } 
+    public void setPista(ArrayList<String> pista) {
+        this.pista = pista;
+    }
+  
 }

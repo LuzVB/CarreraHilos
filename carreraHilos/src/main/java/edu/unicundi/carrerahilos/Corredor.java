@@ -5,6 +5,7 @@
  */
 package edu.unicundi.carrerahilos;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,32 +33,55 @@ public class Corredor extends Thread {
     }
 
     private void ubicarCorredor() {
-        String[] pistaUbicacion;
+        ArrayList<String> pistaUbicacion = new ArrayList<>();
         pistaUbicacion = equipo.getPista();
         if (identificador == 1) {
-            pistaUbicacion[0] = nombre;
+            pistaUbicacion.set(0, nombre);
             equipo.setPista(pistaUbicacion);
         } else if (identificador == 2) {
-            pistaUbicacion[33] = nombre;
+            pistaUbicacion.set(33, nombre);
             equipo.setPista(pistaUbicacion);
         } else if (identificador == 3) {
-            pistaUbicacion[66] = nombre;
+            pistaUbicacion.set(66, nombre);
             equipo.setPista(pistaUbicacion);
         }
     }
 
     private void empezarACorrer() {
-        String[] pistaUbicacion;
-        int numero, posicionActual;
+        ArrayList<String> pistaUbicacion = new ArrayList<>();
+        int random, posicionActual, restaPosicion;
         if (identificador == 1) {
-//            while (equipo.getPista()[33] != nombre) {
-//                pistaUbicacion = equipo.getPista();
-//                numero = (int) (Math.random() * 3) + 1;
-//                posicionActual = Arrays.binarySearch(pistaUbicacion, nombre);
-//                pistaUbicacion[posicionActual] = "-";
-//                pistaUbicacion[posicionActual + numero] = nombre;
-//                equipo.setPista(pistaUbicacion);
-//            }
+
+            while (equipo.getPista().get(33) != nombre) {
+
+                pistaUbicacion = equipo.getPista();
+                random = (int) (Math.random() * 3) + 1;
+                posicionActual = pistaUbicacion.indexOf(nombre);
+                restaPosicion = 33-posicionActual;
+                if (restaPosicion > 3) {
+                   random = random;
+                }
+                else if(restaPosicion == 1){
+                    if (random > 1) {
+                        random = 1;
+                    }
+                }
+                else if(restaPosicion == 2){
+                    if (random > 2) {
+                        random = 1;
+                    }
+                }
+                
+                pistaUbicacion.set(posicionActual, "-");
+                pistaUbicacion.set(posicionActual + random, nombre);
+                equipo.setPista(pistaUbicacion);
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Corredor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         } else if (identificador == 2) {
 
         } else if (identificador == 3) {
