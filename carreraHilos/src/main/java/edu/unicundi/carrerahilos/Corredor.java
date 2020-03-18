@@ -146,7 +146,7 @@ public class Corredor extends Thread {
             }
             
             synchronized (equipo.getPista().get(101)) {
-                equipo.getPista().get(101).notify();
+                equipo.getPista().get(101).notifyAll();
             }
 
 

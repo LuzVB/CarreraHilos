@@ -64,12 +64,33 @@ public class ResultadosCarrera extends Thread {
             imprimirResultados(equipo2);
             imprimirResultados(equipo3);
             System.out.println("\n");
+            String valor1 =equipo1.getPista().get(101);
+            String valor2 =equipo2.getPista().get(101);
+            String valor3 =equipo3.getPista().get(101);
+            
+//            System.out.println(valor);
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(ResultadosCarrera.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            if(valor1 !=  "||"){
+                System.out.println("Gano el Equipo "+equipo1.getNombreEquipo());
+                break;
+            }else if(valor2 !=  "||"){
+                 System.out.println("Gano el Equipo "+equipo2.getNombreEquipo());
+                break;
+            }
+            else if(valor3 !=  "||"){
+                 System.out.println("Gano el Equipo "+equipo3.getNombreEquipo());
+                break;
+            }
         } while (true);
+        
+       
+        
+        
 //        
     }
     
