@@ -15,23 +15,42 @@ import java.util.logging.Logger;
  * @author Luz
  */
 public class Corredor extends Thread {
-
+    /**
+     * la variable identificador almacena el identificador de cada uno de los hilos
+     */
     private short identificador;
+    /**
+     * la variable nombre almacena el nombre de cada uno de los hilos
+     */
     private String nombre;
+    /**
+     * la variable equipo almacena los hilos que pertenencen a ese equipo
+     */
     private Equipo equipo;
-
+    
+    /**
+     * costructor que llama  al metodo de la clase 
+     * el cual muestra la ubicacion del corredor
+     * @param identificador valor del identificador  de cada hilo
+     * @param nombre valor del nombre al que le pertenece a  cada hilo
+     * @param equipo valor del equipo al cual pertenece cada hilo 
+     */
     public Corredor(short identificador, String nombre, Equipo equipo) {
         this.identificador = identificador;
         this.nombre = nombre;
         this.equipo = equipo;
         ubicarCorredor();
     }
-
+    /**
+     * Metodo que levanta cada uno de los hilos
+     */
     @Override
     public void run() {
         empezarACorrer();
     }
-
+    /**
+     * Metodo que ubica a  cada uno de los hilos 
+     */
     private void ubicarCorredor() {
         ArrayList<String> pistaUbicacion = new ArrayList<>();
         pistaUbicacion = equipo.getPista();
@@ -46,7 +65,9 @@ public class Corredor extends Thread {
             equipo.setPista(pistaUbicacion);
         }
     }
-
+    /**
+     * Metodo que muestra el movimiento de cada uno de los hilos 
+     */
     private void empezarACorrer() {
         ArrayList<String> pistaUbicacion = new ArrayList<>();
         int random, posicionActual, restaPosicion, posicionFinal ;
@@ -92,7 +113,7 @@ public class Corredor extends Thread {
                     Logger.getLogger(Corredor.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-       
+          
             while (equipo.getPista().get(65) != nombre) {
 
                 pistaUbicacion = equipo.getPista();
@@ -130,6 +151,7 @@ public class Corredor extends Thread {
 
 
         } else if (identificador == 3) {
+            System.out.println("En espera "+nombre);
             synchronized (equipo.getPista().get(101)) {
                 try {
                     equipo.getPista().get(101).wait();
@@ -138,12 +160,14 @@ public class Corredor extends Thread {
                 }
             }
            
-            while (equipo.getPista().get(101) != nombre) {
-//                System.out.println(equipo.getPista().size() + equipo.getNombreEquipo());
+           
+            while (equipo.getPista().get(100) != nombre) {
+                
                 pistaUbicacion = equipo.getPista();
                 random = (int) (Math.random() * 3) + 1;
                 posicionActual = pistaUbicacion.indexOf(nombre);
-                restaPosicion = 101 - posicionActual;
+            
+                restaPosicion = 100 - posicionActual;
                 if (restaPosicion > 3) {
                     random = random;
                 } else if (restaPosicion == 1) {
@@ -176,8 +200,8 @@ public class Corredor extends Thread {
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Corredor.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-
+                
+            }    
         }
     }
 

@@ -86,36 +86,60 @@ public class Equipo {
         }
     }
 
-  
+    /**
+     * Metodo para mostrar cual a sido el nombre del equipo
+     * @return nombreEquipo retorna el valor del equipo
+     */
     public String getNombreEquipo() {
         return nombreEquipo;
     }
-
+    /**
+     * Metodo para modificar el nombre  del equipo
+     * @param nombreEquipo modificar el nombre  del equipo
+     */
     public void setNombreEquipo(String nombreEquipo) {
         this.nombreEquipo = nombreEquipo;
     }
-
+    /**
+     * Metodo para mostrar cual a sido el color del equipo
+     * @return  colorEquipo retorna el color de equipo
+     */
     public String getColorEquipo() {
         return colorEquipo;
     }
-
+    /**
+     * Metodo para modificar el color  del equipo
+     * @param colorEquipo  modificar el  color del equipo
+     */
     public void setColorEquipo(String colorEquipo) {
         this.colorEquipo = colorEquipo;
     }
-
+    /**
+     * Metodo para mostrar cual a sido el identificadro del corredor
+     * @return identificador retorna el identificador del corredor 
+     */
     public short getIdentificador() {
         return identificador;
     }
-
+    /**
+     * Metodo para modificar el identificador del equipo
+     * @param identificador modificar el valor del identificador
+     */
     public void setIdentificador(short identificador) {
         this.identificador = identificador;
     }
-    
+    /**
+     * Metodo para mostrar la pista  
+     * @return pista retorna array
+     */
     
     public ArrayList<String> getPista() {
         return pista;
     }
-
+    /**
+     * Metodo para modificar la pista de los corredores 
+     * @param pista modificar la pista
+     */
     public void setPista(ArrayList<String> pista) {
         this.pista = pista;
     }

@@ -14,8 +14,11 @@ public class Carrera {
     public Carrera() {
 
     }
-
+    /**
+     * Metodo donde se inicializan cada uno de los hilos
+     */
     public void empezar() {
+   
         Equipo equipoNumero1 = new Equipo("Los Aguilas", (short) 1);
         Equipo equipoNumero2 = new Equipo("Los Aguilas2", (short) 2);
         Equipo equipoNumero3 = new Equipo("Los Aguilas2", (short) 3);
