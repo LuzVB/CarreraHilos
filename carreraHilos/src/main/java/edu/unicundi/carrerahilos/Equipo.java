@@ -35,12 +35,11 @@ public class Equipo {
     private short identificador;
     
     /**
-     * 
+     * costructor que  llama a los metodos de la clase 
+     * los cuales llenan el carril y seleccionan el color del equipo
      * @param nombreEquipo
      * @param identificador 
      * 
-     * costructor el cual llama a los metodos de la clase 
-     * los cuales llenan el carril y seleccionan el color del equipo
      */
     public Equipo(String nombreEquipo, short identificador){
         this.nombreEquipo = nombreEquipo;

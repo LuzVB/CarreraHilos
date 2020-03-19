@@ -41,6 +41,7 @@ public class ResultadosCarrera extends Thread {
             resultado = ganador();
             try {
                 Thread.sleep(2000);
+                
             } catch (InterruptedException ex) {
                 Logger.getLogger(ResultadosCarrera.class.getName()).log(Level.SEVERE, null, ex);
             }
