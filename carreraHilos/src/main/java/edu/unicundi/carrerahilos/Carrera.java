@@ -19,9 +19,11 @@ public class Carrera {
      * Metodo donde se inicializan cada uno de los hilos
      */
     public void empezar() {
-        Equipo equipoNumero1 = new Equipo("Colombia", (short) 1);
-        Equipo equipoNumero2 = new Equipo("Canada", (short) 2);
-        Equipo equipoNumero3 = new Equipo("Japon", (short) 3);
+        ParametrosCarrera parametros = new ParametrosCarrera((short) 101,(short) 0,(short) 33,(short) 66);
+        
+        Equipo equipoNumero1 = new Equipo("Colombia", (short) 1,parametros);
+        Equipo equipoNumero2 = new Equipo("Canada", (short) 2,parametros);
+        Equipo equipoNumero3 = new Equipo("Japon", (short) 3,parametros);
 
         Corredor corredor1 = new Corredor((short) 1, "X", equipoNumero1);
         Corredor corredor2 = new Corredor((short) 1, "W", equipoNumero2);

@@ -35,15 +35,23 @@ public class Equipo {
     private short identificador;
     
     /**
-     * costructor que  llama a los metodos de la clase 
-     * los cuales llenan el carril y seleccionan el color del equipo
-     * @param nombreEquipo
-     * @param identificador 
-     * 
+     * Variable que almacena un objeto parametros 
+     * para la construcion de la pista
      */
-    public Equipo(String nombreEquipo, short identificador){
+    
+    private ParametrosCarrera parametros;
+    
+    /**
+     * costructor el cual llama a los metodos de la clase 
+     * los cuales llenan el carril y seleccionan el color del equipo
+     * @param nombreEquipo valor del nombre del equipo
+     * @param identificador valor del identificador 
+     * @param parametros valor de los parametros de la carrera
+     */
+    public Equipo(String nombreEquipo, short identificador, ParametrosCarrera parametros){
         this.nombreEquipo = nombreEquipo;
         this.identificador = identificador;
+        this.parametros = parametros;
         llenarCarril();
         colorCorrespondiente();
     } 
@@ -53,7 +61,7 @@ public class Equipo {
      * es la representacion del carril de los corredores
      */
     private void llenarCarril(){
-        for (int i = 0; i < 101; i++) {
+        for (int i = 0; i < parametros.getDistancia(); i++) {
            pista.add(i, "-");
         }
         pista.add(pista.size(), "||");
@@ -135,6 +143,24 @@ public class Equipo {
      */
     public void setPista(ArrayList<String> pista) {
         this.pista = pista;
+    }
+    
+    
+    /**
+     * Metodo para mostrar un objeto de la clase ParametrosCarrera
+     * @return parametros
+     */
+    public ParametrosCarrera getParametros() {
+        return parametros;
+    }
+    
+    /**
+     *  Metodo para modificar un objeto de la clase ParametrosCarrera
+     * @param parametros 
+     */
+
+    public void setParametros(ParametrosCarrera parametros) {
+        this.parametros = parametros;
     }
   
 }
