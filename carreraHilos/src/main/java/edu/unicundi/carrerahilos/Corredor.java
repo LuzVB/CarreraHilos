@@ -145,29 +145,28 @@ public class Corredor extends Thread {
                 }
             }
             
-            synchronized (equipo.getPista().get(101)) {
-                equipo.getPista().get(101).notifyAll();
+            synchronized (equipo.getNombreEquipo()) {
+                equipo.getNombreEquipo().notifyAll();
             }
 
 
         } else if (identificador == 3) {
-            System.out.println("En espera "+nombre);
-            synchronized (equipo.getPista().get(101)) {
+            synchronized (equipo.getNombreEquipo()) {
                 try {
-                    equipo.getPista().get(101).wait();
+                    equipo.getNombreEquipo().wait();
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Corredor.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
            
            
-            while (equipo.getPista().get(100) != nombre) {
+            while (equipo.getPista().get(101) != nombre) {
                 
                 pistaUbicacion = equipo.getPista();
                 random = (int) (Math.random() * 3) + 1;
                 posicionActual = pistaUbicacion.indexOf(nombre);
             
-                restaPosicion = 100 - posicionActual;
+                restaPosicion = 101 - posicionActual;
                 if (restaPosicion > 3) {
                     random = random;
                 } else if (restaPosicion == 1) {

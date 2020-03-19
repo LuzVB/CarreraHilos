@@ -16,7 +16,6 @@ public class Equipo {
      * Variable que guarda las pósiciones de los corredores 
      * simulando en que parte de la pista van.
      */
-//    private String[] lista = new String[101];
     ArrayList<String> pista = new ArrayList<>();
 
     /**
@@ -55,11 +54,6 @@ public class Equipo {
      * es la representacion del carril de los corredores
      */
     private void llenarCarril(){
-//        for (int i = 0; i < pista.length; i++) {
-//           pista[i]="-";
-//        }
-//        pista[pista.length-1] = "||";
-        
         for (int i = 0; i < 101; i++) {
            pista.add(i, "-");
         }
