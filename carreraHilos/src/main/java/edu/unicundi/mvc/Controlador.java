@@ -9,9 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 
+
 /**
  *
- * @author Valentina
+ * @author Luz
  */
 public class Controlador implements ActionListener {
 
